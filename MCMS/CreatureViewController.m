@@ -15,6 +15,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *name;
 @property (strong, nonatomic) IBOutlet UITextField *nameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *nameDescriptionTextField;
+@property (strong, nonatomic) IBOutlet UITextField *nameDescriptionTextLabel;
 
 @end
 
@@ -25,7 +26,13 @@
     [super viewDidLoad];
     
     self.name.text = self.creature.name;
-    self.nameDescriptionTextField.text = self.creature.description;
+    self.nameDescriptionTextLabel.text = self.creature.description;
+    
+    // Description not showing up here within label - fix!!
+    
+    NSLog(@"%@", self.nameDescriptionTextField.text);
+    NSLog(@"%@", self.nameDescriptionTextLabel.text);
+
     
     self.nameTextField.alpha = 0.0;
 }
@@ -34,8 +41,11 @@
 {
     self.name.alpha          = 0.0;
     self.nameTextField.alpha = 1.0;
+
     
     self.nameTextField.text = self.creature.name;
+    self.nameDescriptionTextField.text = self.creature.description;
+
 }
 - (IBAction)onSaveButtonPressed:(id)sender
 {
